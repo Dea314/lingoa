@@ -74,7 +74,7 @@ export const challengesRelations = relations(challenges, ({ one, many }) => ({
     references: [lessons.id],
   }),
   challengeOptions: many(challengeOptions),
-  challlengeProgress: many(challengeProgress),
+  challengeProgress: many(challengeProgress),
 }));
 
 export const challengeOptions = pgTable("challenge_options", {
