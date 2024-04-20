@@ -135,7 +135,7 @@ const main = async () => {
       {
         id: 1,
         challengeId: 1,
-        imageSrc: "/mother.png",
+        imageSrc: "/mother.svg",
         correct: true,
         text: "madre",
         audioSrc: "/it_madre.mp3",
@@ -143,7 +143,7 @@ const main = async () => {
       {
         id: 2,
         challengeId: 1,
-        imageSrc: "/brother.png",
+        imageSrc: "/brother.svg",
         correct: false,
         text: "fratello",
         audioSrc: "/it_fratello.mp3",
@@ -151,7 +151,7 @@ const main = async () => {
       {
         id: 3,
         challengeId: 1,
-        imageSrc: "/daughter.png",
+        imageSrc: "/daughter.svg",
         correct: false,
         text: "figlia",
         audioSrc: "/it_figlia.mp3",
