@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Header } from "./header";
 import QuestionBubble from "./question-bubble";
 import { Challenge } from "./challenge";
+import { Footer } from "./footer";
 
 type Props = {
   initialPercentage: number;
@@ -34,8 +35,45 @@ export const Quiz = ({
     return uncomletedIndex === -1 ? 0 : uncomletedIndex;
   });
 
+  const [selectedOption, setSelectedOption] = useState<number>();
+  const [status, setStatus] = useState<"correct" | "wrong" | "none">("none");
+
   const challenge = challenges[activeIndex];
   const options = challenge?.challengeOptions ?? [];
+
+  const onNext = () => {
+    setActiveIndex((current) => current + 1);
+  };
+
+  const onSelect = (id: number) => {
+    if (status !== "none") return;
+
+    setSelectedOption(id);
+  };
+
+  const onContinue = () => {
+    if (!selectedOption) return;
+    if (status === "wrong") {
+      setSelectedOption(undefined);
+      return;
+    }
+    if (status === "correct") {
+      onNext();
+      setStatus("none");
+      setSelectedOption(undefined);
+      return;
+    }
+
+    const correctOption = options.find((option) => option.correct);
+    if (!correctOption) {
+      return;
+    }
+    if (correctOption.id === selectedOption) {
+      console.log("Correct option!");
+    } else {
+      console.log("Incorrect option!");
+    }
+  };
 
   const title =
     challenge.type === "ASSIST"
@@ -60,9 +98,9 @@ export const Quiz = ({
               )}
               <Challenge
                 options={options}
-                onSelect={() => {}}
-                status="none"
-                selectedOption={undefined}
+                onSelect={onSelect}
+                status={status}
+                selectedOption={selectedOption}
                 disabled={false}
                 type={challenge.type}
               />
@@ -70,6 +108,7 @@ export const Quiz = ({
           </div>
         </div>
       </div>
+      <Footer disabled={!selectedOption} status={status} onCheck={onContinue} />
     </>
   );
 };
