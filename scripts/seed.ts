@@ -124,16 +124,22 @@ const main = async () => {
       },
       {
         id: 2,
-        lessonId: 2, // Verbs
+        lessonId: 1, // Verbs
+        type: "ASSIST",
+        order: 2,
+        qusetion: `"to talk"`,
+      },
+      {
+        id: 3,
+        lessonId: 1, // Nouns
         type: "SELECT",
-        order: 1,
-        qusetion: `How to say "to talk" on italian?`,
+        order: 3,
+        qusetion: `Which one of these is the "brother"?`,
       },
     ]);
 
     await db.insert(schema.challengeOptions).values([
       {
-        id: 1,
         challengeId: 1,
         imageSrc: "/mother.svg",
         correct: true,
@@ -141,7 +147,6 @@ const main = async () => {
         audioSrc: "/it_madre.mp3",
       },
       {
-        id: 2,
         challengeId: 1,
         imageSrc: "/brother.svg",
         correct: false,
@@ -149,36 +154,56 @@ const main = async () => {
         audioSrc: "/it_fratello.mp3",
       },
       {
-        id: 3,
         challengeId: 1,
         imageSrc: "/daughter.svg",
         correct: false,
         text: "figlia",
         audioSrc: "/it_figlia.mp3",
       },
+    ]);
+
+    await db.insert(schema.challengeOptions).values([
       {
-        id: 4,
         challengeId: 2,
-        imageSrc: "/walk.png",
         correct: false,
         text: "camminare",
         audioSrc: "/it_camminare.mp3",
       },
       {
-        id: 5,
         challengeId: 2,
-        imageSrc: "/pay.png",
         correct: false,
         text: "pagare",
         audioSrc: "/it_pagare.mp3",
       },
       {
-        id: 6,
         challengeId: 2,
-        imageSrc: "/talk.png",
         correct: true,
         text: "parlare",
         audioSrc: "/it_parlare.mp3",
+      },
+    ]);
+
+    await db.insert(schema.challengeOptions).values([
+      {
+        challengeId: 3,
+        imageSrc: "/mother.svg",
+        correct: false,
+        text: "madre",
+        audioSrc: "/it_madre.mp3",
+      },
+      {
+        challengeId: 3,
+        imageSrc: "/brother.svg",
+        correct: true,
+        text: "fratello",
+        audioSrc: "/it_fratello.mp3",
+      },
+      {
+        challengeId: 3,
+        imageSrc: "/daughter.svg",
+        correct: false,
+        text: "figlia",
+        audioSrc: "/it_figlia.mp3",
       },
     ]);
 
