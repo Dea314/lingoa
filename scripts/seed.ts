@@ -61,6 +61,20 @@ const main = async () => {
         description: "Learn the basics of Italian",
         order: 1,
       },
+      {
+        id: 2,
+        courseId: 2,
+        title: "Unit 1",
+        description: "Learn the basics of German",
+        order: 1,
+      },
+      {
+        id: 3,
+        courseId: 3,
+        title: "Unit 1",
+        description: "Learn the basics of French",
+        order: 1,
+      },
     ]);
 
     await db.insert(schema.lessons).values([
@@ -136,6 +150,13 @@ const main = async () => {
         order: 3,
         qusetion: `Which one of these is the "brother"?`,
       },
+      {
+        id: 4,
+        lessonId: 1, // Colours
+        type: "ASSIST",
+        order: 4,
+        qusetion: `"red"`,
+      },
     ]);
 
     await db.insert(schema.challengeOptions).values([
@@ -204,6 +225,27 @@ const main = async () => {
         correct: false,
         text: "figlia",
         audioSrc: "/it_figlia.mp3",
+      },
+    ]);
+
+    await db.insert(schema.challengeOptions).values([
+      {
+        challengeId: 4,
+        correct: false,
+        text: "il blu",
+        audioSrc: "/it_blu.mp3",
+      },
+      {
+        challengeId: 4,
+        correct: true,
+        text: "il rosso",
+        audioSrc: "/it_rosso.mp3",
+      },
+      {
+        challengeId: 4,
+        correct: false,
+        text: "verde",
+        audioSrc: "/it_verde.mp3",
       },
     ]);
 
