@@ -138,10 +138,10 @@ const main = async () => {
       },
       {
         id: 2,
-        lessonId: 1, // Verbs
+        lessonId: 1, // Nouns
         type: "ASSIST",
         order: 2,
-        qusetion: `"to talk"`,
+        qusetion: `"the house"`,
       },
       {
         id: 3,
@@ -152,100 +152,125 @@ const main = async () => {
       },
       {
         id: 4,
-        lessonId: 1, // Colours
+        lessonId: 1, // Nouns
+        type: "ASSIST",
+        order: 4,
+        qusetion: `"an apple"`,
+      },
+    ]);
+
+    await db.insert(schema.challengeOptions).values([
+      {
+        challengeId: 1,
+        imageSrc: "/mother.svg",
+        correct: true,
+        text: "madre",
+        audioSrc: "/it_madre.mp3",
+      },
+      {
+        challengeId: 1,
+        imageSrc: "/brother.svg",
+        correct: false,
+        text: "fratello",
+        audioSrc: "/it_fratello.mp3",
+      },
+      {
+        challengeId: 1,
+        imageSrc: "/daughter.svg",
+        correct: false,
+        text: "figlia",
+        audioSrc: "/it_figlia.mp3",
+      },
+    ]);
+
+    await db.insert(schema.challengeOptions).values([
+      {
+        challengeId: 2,
+        correct: false,
+        text: "il ristorante",
+      },
+      {
+        challengeId: 2,
+        correct: false,
+        text: "la scuola",
+      },
+      {
+        challengeId: 2,
+        correct: true,
+        text: "la casa",
+      },
+    ]);
+
+    await db.insert(schema.challengeOptions).values([
+      {
+        challengeId: 3,
+        imageSrc: "/mother.svg",
+        correct: false,
+        text: "madre",
+        audioSrc: "/it_madre.mp3",
+      },
+      {
+        challengeId: 3,
+        imageSrc: "/brother.svg",
+        correct: true,
+        text: "fratello",
+        audioSrc: "/it_fratello.mp3",
+      },
+      {
+        challengeId: 3,
+        imageSrc: "/daughter.svg",
+        correct: false,
+        text: "figlia",
+        audioSrc: "/it_figlia.mp3",
+      },
+    ]);
+
+    await db.insert(schema.challengeOptions).values([
+      {
+        challengeId: 4,
+        correct: false,
+        text: "la pera",
+      },
+      {
+        challengeId: 4,
+        correct: true,
+        text: "una mela",
+      },
+      {
+        challengeId: 4,
+        correct: false,
+        text: "una banana",
+      },
+    ]);
+
+    await db.insert(schema.challenges).values([
+      {
+        id: 5,
+        lessonId: 2, // Verbs
+        type: "SELECT",
+        order: 1,
+        qusetion: `Which one of these is the "mother"?`,
+      },
+      {
+        id: 6,
+        lessonId: 2, // Verbs
+        type: "ASSIST",
+        order: 2,
+        qusetion: `"to talk"`,
+      },
+      {
+        id: 7,
+        lessonId: 2, // Verbs
+        type: "SELECT",
+        order: 3,
+        qusetion: `Which one of these is the "brother"?`,
+      },
+      {
+        id: 8,
+        lessonId: 2, // Verbs
         type: "ASSIST",
         order: 4,
         qusetion: `"red"`,
-      },
-    ]);
-
-    await db.insert(schema.challengeOptions).values([
-      {
-        challengeId: 1,
-        imageSrc: "/mother.svg",
-        correct: true,
-        text: "madre",
-        audioSrc: "/it_madre.mp3",
-      },
-      {
-        challengeId: 1,
-        imageSrc: "/brother.svg",
-        correct: false,
-        text: "fratello",
-        audioSrc: "/it_fratello.mp3",
-      },
-      {
-        challengeId: 1,
-        imageSrc: "/daughter.svg",
-        correct: false,
-        text: "figlia",
-        audioSrc: "/it_figlia.mp3",
-      },
-    ]);
-
-    await db.insert(schema.challengeOptions).values([
-      {
-        challengeId: 2,
-        correct: false,
-        text: "camminare",
-        audioSrc: "/it_camminare.mp3",
-      },
-      {
-        challengeId: 2,
-        correct: false,
-        text: "pagare",
-        audioSrc: "/it_pagare.mp3",
-      },
-      {
-        challengeId: 2,
-        correct: true,
-        text: "parlare",
-        audioSrc: "/it_parlare.mp3",
-      },
-    ]);
-
-    await db.insert(schema.challengeOptions).values([
-      {
-        challengeId: 3,
-        imageSrc: "/mother.svg",
-        correct: false,
-        text: "madre",
-        audioSrc: "/it_madre.mp3",
-      },
-      {
-        challengeId: 3,
-        imageSrc: "/brother.svg",
-        correct: true,
-        text: "fratello",
-        audioSrc: "/it_fratello.mp3",
-      },
-      {
-        challengeId: 3,
-        imageSrc: "/daughter.svg",
-        correct: false,
-        text: "figlia",
-        audioSrc: "/it_figlia.mp3",
-      },
-    ]);
-
-    await db.insert(schema.challengeOptions).values([
-      {
-        challengeId: 4,
-        correct: false,
-        text: "il blu",
-        audioSrc: "/it_blu.mp3",
-      },
-      {
-        challengeId: 4,
-        correct: true,
-        text: "il rosso",
-        audioSrc: "/it_rosso.mp3",
-      },
-      {
-        challengeId: 4,
-        correct: false,
-        text: "verde",
-        audioSrc: "/it_verde.mp3",
       },
     ]);
 
