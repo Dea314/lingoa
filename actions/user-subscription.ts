@@ -26,14 +26,7 @@ export const createStripeUrl = async () => {
 
   const stripeSession = await stripe.checkout.sessions.create({
     mode: "subscription",
-    payment_method_types: [
-      "card",
-      "paypal",
-      "giropay",
-      "klarna",
-      "amazon_pay",
-      "revolut_pay",
-    ],
+    payment_method_types: ["card", "paypal"],
     customer_email: user.emailAddresses[0].emailAddress,
     line_items: [
       {
