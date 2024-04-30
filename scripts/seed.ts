@@ -21,7 +21,7 @@ const main = async () => {
     await db.delete(schema.challengeProgress);
     await db.delete(schema.userSubscription);
 
-    await db.insert(schema.courses).values([
+    /*     await db.insert(schema.courses).values([
       {
         id: 1,
         title: "Italian",
@@ -273,7 +273,7 @@ const main = async () => {
         order: 4,
         qusetion: `"red"`,
       },
-    ]);
+    ]); */
 
     console.log("Seeding finished!");
   } catch (error) {
