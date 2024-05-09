@@ -3,7 +3,6 @@ import db from "./drizzle";
 import { auth } from "@clerk/nextjs";
 import { eq } from "drizzle-orm";
 import {
-  challengeOptions,
   challengeProgress,
   courses,
   lessons,
